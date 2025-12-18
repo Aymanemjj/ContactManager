@@ -1,6 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +7,7 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>ContactManager</title>
 </head>
-
 <body>
-
-
     <header class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">ContactManager</a>
@@ -30,36 +26,12 @@
         </li> -->
                 </ul>
                 <div class="d-flex" role="Login">
-                    <a href="login.html" class="btn btn-outline-success">Log in</a>
+                    <a href="pages/register.html" class="btn btn-success">register</a>
+                    <a href="pages/login.html" class="btn btn-outline-success">Log in</a>
                 </div>
             </div>
         </div>
     </header>
-
-
-<section class="m-2 ">
-    <form class="w-50" name="inscriptionForm">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">FullName</label>
-            <input type="text" class="form-control" id="FullName" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</section>
-
-
-
-
-
 
 
 
@@ -71,5 +43,4 @@
         crossorigin="anonymous"></script>
 
 </body>
-
 </html>
