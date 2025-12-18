@@ -10,3 +10,13 @@ try {
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
+
+
+function insertToUsersDB($conn,$data){
+    $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+    $stmt= $conn->prepare($sql);
+    $stmt->execute([
+        $data['username'],
+        password_hash($data['password'], PASSWORD_DEFAULT)
+    ]);
+}
