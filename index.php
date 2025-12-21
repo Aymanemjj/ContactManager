@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,33 +15,43 @@
 </head>
 
 <body>
-    <header class="navbar navbar-expand-lg bg-body-tertiary">
-        <nav>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">ContactManager</a>
+                <a class="navbar-brand" href="../index.php">ContactManager</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <?php
-                    if (isset($_GET['username'])) {
-                        echo '
+                    if (isset($_SESSION['logged_in'])) {
+                        echo '                    
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ContactList</a>
-                            </li>
-                        </ul>';
-                    };
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="pages/profile.php">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">ContactList</a>
+                                </li>
+                            </ul>';
+                    }
                     ?>
 
-                    <div class="d-flex" role="Login">
-                        <a href="pages/register.html" class="btn btn-success">register</a>
-                        <a href="pages/login.html" class="btn btn-outline-success">Log in</a>
+                    <div class="d-flex gap-2">
+                        <?php
+                        if (isset($_SESSION['logged_in'])) {
+                            echo '<form action="../php/logOut.php" method="post"><button type="submit" href="../pages/login.php" class="btn btn-danger">Log out</button></form>';
+                            echo '<a href="profile.php" class="btn btn-success">Welcome ' . $_SESSION['username'] . '</a>';
+                        } else {
+                            echo '<a href="../pages/register.php" class="btn btn-success">Register</a>';
+                            echo '<a href="../pages/login.php" class="btn btn-outline-success">Log in</a>';
+                        }
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -44,7 +59,13 @@
     </header>
 
 
-
+    <section>
+        <?php
+        if (isset($_SESSION['logged_in'])) {
+            echo '<h1>Welcome ' . $_SESSION['username'] . '</h1>';
+        }
+        ?>
+    </section>
 
 
 
